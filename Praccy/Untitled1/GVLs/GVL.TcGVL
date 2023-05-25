@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <GVL Name="GVL" Id="{006837ee-b008-4a37-82c2-cac6ad310a03}">
+    <Declaration><![CDATA[{attribute 'Tc2GvlVarNames'}
+VAR_GLOBAL
+	button : BOOL;
+	
+	light1: BOOL;
+	light2: BOOL;
+	light3: BOOL;
+	light4: BOOL;
+	
+	alights: ARRAY[1..4] OF BOOL;
+	Hold : INT;
+	
+	NUM : INT;
+    CAS: INT ;
+	
+	robo1 : ST_robot; 
+	robo2 : ST_robot;
+	
+	test: bool;
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

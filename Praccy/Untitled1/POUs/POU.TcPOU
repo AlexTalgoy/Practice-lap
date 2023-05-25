@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="POU" Id="{250b1260-1cee-43b3-87a3-fd773fbfbb19}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM POU
+VAR
+	Ton1 :ton;
+	Ton2 :ton;
+	
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+ton1(PT := T#2S);
+ton2(PT := T#2S);
+
+
+IF ton2.Q = TRUE THEN
+			ton1.in :=FALSE;
+			ton2.IN :=FALSE;
+			
+ELSIF ton1.Q = TRUE THEN
+		ton2.IN := TRUE;
+				
+ELSIF ton2.Q = FALSE THEN
+	ton1.IN := TRUE;
+	
+	
+END_IF
+
+]]></ST>
+    </Implementation>
+    <LineIds Name="POU">
+      <LineId Id="5" Count="0" />
+      <LineId Id="7" Count="0" />
+      <LineId Id="14" Count="0" />
+      <LineId Id="18" Count="0" />
+      <LineId Id="27" Count="0" />
+      <LineId Id="49" Count="3" />
+      <LineId Id="54" Count="2" />
+      <LineId Id="16" Count="0" />
+      <LineId Id="25" Count="0" />
+      <LineId Id="41" Count="0" />
+      <LineId Id="24" Count="0" />
+      <LineId Id="22" Count="0" />
+      <LineId Id="17" Count="0" />
+      <LineId Id="15" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

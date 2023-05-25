@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="MAIN" Id="{e9c7b7b8-0d44-4f84-a605-4e636016ba56}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[FOR hold := 1 TO 4 DO
+	aLIghts[hold] := FALSE;
+END_FOR
+
+CASE CAS OF	
+	0, 5..8:
+	
+		IF (NUM > 0) AND (NUM < 100) THEN;
+			alights[1] := TRUE;
+		
+		ELSIF (NUM > 101) AND (NUM < 200) THEN;
+			alights[2] := TRUE;
+		END_IF
+		
+	1,2,3,4:
+	
+		IF (NUM > 201) AND (NUM < 300) THEN;
+			alights[3] := TRUE;
+		
+		ELSIF (NUM > 301) AND (NUM < 400) THEN;
+			alights[4] := TRUE;
+			
+		END_IF	
+	
+END_CASE
+	
+IF test := TRUE THEN;
+	robo1.aDirection[1] := TRUE;
+	
+	robo2.aDirection[3] := TRUE;
+END_IF
+
+
+POU();
+]]></ST>
+    </Implementation>
+    <LineIds Name="MAIN">
+      <LineId Id="73" Count="0" />
+      <LineId Id="121" Count="1" />
+      <LineId Id="70" Count="0" />
+      <LineId Id="20" Count="0" />
+      <LineId Id="79" Count="0" />
+      <LineId Id="84" Count="1" />
+      <LineId Id="89" Count="2" />
+      <LineId Id="95" Count="1" />
+      <LineId Id="118" Count="0" />
+      <LineId Id="115" Count="1" />
+      <LineId Id="97" Count="0" />
+      <LineId Id="101" Count="2" />
+      <LineId Id="107" Count="0" />
+      <LineId Id="117" Count="0" />
+      <LineId Id="108" Count="1" />
+      <LineId Id="80" Count="0" />
+      <LineId Id="30" Count="0" />
+      <LineId Id="123" Count="1" />
+      <LineId Id="126" Count="1" />
+      <LineId Id="125" Count="0" />
+      <LineId Id="134" Count="0" />
+      <LineId Id="133" Count="0" />
+      <LineId Id="34" Count="0" />
+      <LineId Id="138" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>
